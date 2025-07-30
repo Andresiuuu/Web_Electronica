@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <a href="index.html">Volver</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Conversiones Numéricas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 Conversiones Numéricas</h1>
+            <p>Explora diferentes sistemas de numeración de forma interactiva</p>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar por cualquier valor..." id="searchInput">
+        </div>
+        
+        <div class="controls">
+            <button class="filter-btn active" onclick="showAll()">Todos</button>
+            <button class="filter-btn" onclick="filterByRange('small')">Números Pequeños (&lt;100)</button>
+            <button class="filter-btn" onclick="filterByRange('medium')">Números Medianos (100-500)</button>
+            <button class="filter-btn" onclick="filterByRange('large')">Números Grandes (&gt;500)</button>
+        </div>
+        
+        <div class="table-container">
+            <table class="conversion-table" id="conversionTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">🔴 Binario</th>
+                        <th onclick="sortTable(1)">🟡 Octal</th>
+                        <th onclick="sortTable(2)">🔵 Hexadecimal</th>
+                        <th onclick="sortTable(3)">🟢 Decimal</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr><td class="binary">1101011010</td><td class="octal">1552</td><td class="hex">35A</td><td class="decimal">858</td></tr>
+                    <tr><td class="binary">1010101011</td><td class="octal">1253</td><td class="hex">2AB</td><td class="decimal">683</td></tr>
+                    <tr><td class="binary">1010100101</td><td class="octal">1245</td><td class="hex">2A5</td><td class="decimal">677</td></tr>
+                    <tr><td class="binary">1010010111</td><td class="octal">1257</td><td class="hex">2AF</td><td class="decimal">687</td></tr>
+                    <tr><td class="binary">101111</td><td class="octal">57</td><td class="hex">2F</td><td class="decimal">47</td></tr>
+                    <tr><td class="binary">111000</td><td class="octal">70</td><td class="hex">38</td><td class="decimal">56</td></tr>
+                    <tr><td class="binary">110000</td><td class="octal">60</td><td class="hex">30</td><td class="decimal">48</td></tr>
+                    <tr><td class="binary">110101</td><td class="octal">65</td><td class="hex">35</td><td class="decimal">53</td></tr>
+                    <tr><td class="binary">1101001011</td><td class="octal">643</td><td class="hex">34B</td><td class="decimal">843</td></tr>
+                    <tr><td class="binary">1111011</td><td class="octal">173</td><td class="hex">7B</td><td class="decimal">123</td></tr>
+                    <tr><td class="binary">10101100</td><td class="octal">254</td><td class="hex">AC</td><td class="decimal">172</td></tr>
+                    <tr><td class="binary">10111101</td><td class="octal">275</td><td class="hex">BD</td><td class="decimal">189</td></tr>
+                    <tr><td class="binary">1111000</td><td class="octal">170</td><td class="hex">78</td><td class="decimal">120</td></tr>
+                    <tr><td class="binary">10000010</td><td class="octal">202</td><td class="hex">82</td><td class="decimal">130</td></tr>
+                    <tr><td class="binary">10001100</td><td class="octal">214</td><td class="hex">8C</td><td class="decimal">140</td></tr>
+                    <tr><td class="binary">10010110</td><td class="octal">226</td><td class="hex">96</td><td class="decimal">150</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="stats" id="stats">
+            Mostrando 16 de 16 conversiones
+        </div>
+    </div>
+
+    <script>
+        const originalData = [];
+        let currentData = [];
+        
+        // Guardar datos originales
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('#tableBody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                originalData.push({
+                    binary: cells[0].textContent,
+                    octal: cells[1].textContent,
+                    hex: cells[2].textContent,
+                    decimal: parseInt(cells[3].textContent)
+                });
+            });
+            currentData = [...originalData];
+        });
+        
+        // Función de búsqueda
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#tableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+                
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                    row.classList.add('highlight');
+                    setTimeout(() => row.classList.remove('highlight'), 1000);
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            updateStats(visibleCount);
+        });
+        
+        // Funciones de filtrado
+        function showAll() {
+            document.querySelectorAll('#tableBody tr').forEach(row => {
+                row.style.display = '';
+            });
+            updateActiveButton(event.target);
+            updateStats(originalData.length);
+        }
+        
+        function filterByRange(range) {
+            const rows = document.querySelectorAll('#tableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const decimal = parseInt(row.children[3].textContent);
+                let show = false;
+                
+                switch(range) {
+                    case 'small':
+                        show = decimal < 100;
+                        break;
+                    case 'medium':
+                        show = decimal >= 100 && decimal <= 500;
+                        break;
+                    case 'large':
+                        show = decimal > 500;
+                        break;
+                }
+                
+                if (show) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            updateActiveButton(event.target);
+            updateStats(visibleCount);
+        }
+        
+        function updateActiveButton(activeBtn) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeBtn.classList.add('active');
+        }
+        
+        function updateStats(count) {
+            document.getElementById('stats').textContent = `Mostrando ${count} de ${originalData.length} conversiones`;
+        }
+        
+        // Función de ordenamiento
+        function sortTable(columnIndex) {
+            const tbody = document.getElementById('tableBody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                let aVal = a.children[columnIndex].textContent;
+                let bVal = b.children[columnIndex].textContent;
+                
+                // Para columna decimal, comparar como números
+                if (columnIndex === 3) {
+                    return parseInt(aVal) - parseInt(bVal);
+                }
+                
+                // Para otras columnas, comparar como strings
+                return aVal.localeCompare(bVal);
+            });
+            
+            // Limpiar y re-agregar filas ordenadas
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+            
+            // Efecto visual
+            rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.classList.add('highlight');
+                    setTimeout(() => row.classList.remove('highlight'), 500);
+                }, index * 50);
+            });
+        }
+        
+        // Efectos de hover dinámicos
+        document.addEventListener('mousemove', function(e) {
+            const table = document.getElementById('conversionTable');
+            const rect = table.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            table.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)`;
+        });
+    </script>
+</body>
+</html>

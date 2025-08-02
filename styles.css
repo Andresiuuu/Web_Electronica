@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+
 
 * {
     margin: 0;
@@ -427,4 +427,7 @@ iframe {
     }
 }
 
+.content {
+    animation: fadeInUp 0.6s ease-out;
+}
 

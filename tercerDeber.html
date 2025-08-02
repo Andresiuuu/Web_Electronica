@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <a href="index.html">Volver</a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Conversiones Numéricas</title>
-    <link rel="stylesheet" href="styles.css">
+    <Style> 
+
+    body {
+    font-family: 'JetBrains Mono', monospace;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: auto;
+}
+</Style>
+
+    <link rel="stylesheet" href="StylesConversiones.css">
 </head>
+
+
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔢 Conversiones Numéricas</h1>
+            <div class="nav-links">
+                <a href="index.html">Primer Deber</a>
+                <a href="segundoDeber.html">Segundo Deber</a>
+                <a href="Actividad1Tinkercad.html">Actividad 1</a>
+                <a href="Actividad2Tinkercad.html">Actividad2</a>
+                
+            </div>
+            <h1>Conversiones Numéricas</h1>
             <p>Explora diferentes sistemas de numeración de forma interactiva</p>
         </div>
-        
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Buscar por cualquier valor..." id="searchInput">
-        </div>
-        
+        <div class="content">
         <div class="controls">
             <button class="filter-btn active" onclick="showAll()">Todos</button>
             <button class="filter-btn" onclick="filterByRange('small')">Números Pequeños (&lt;100)</button>
@@ -60,7 +75,7 @@
             Mostrando 16 de 16 conversiones
         </div>
     </div>
-
+    </div>
     <script>
         const originalData = [];
         let currentData = [];
@@ -78,30 +93,7 @@
                 });
             });
             currentData = [...originalData];
-        });
-        
-        // Función de búsqueda
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const rows = document.querySelectorAll('#tableBody tr');
-            let visibleCount = 0;
-            
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
-                
-                if (text.includes(searchTerm)) {
-                    row.style.display = '';
-                    row.classList.add('highlight');
-                    setTimeout(() => row.classList.remove('highlight'), 1000);
-                    visibleCount++;
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-            
-            updateStats(visibleCount);
-        });
+        }); 
         
         // Funciones de filtrado
         function showAll() {

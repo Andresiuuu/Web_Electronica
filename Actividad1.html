@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis y Simulación de Compuertas Lógicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav-links">
+                <a href="segundoDeber.html">Segundo Deber</a>
+                <a href="tercerDeber.html">Tercer Deber</a>
+                <a href="Actividad1Tinkercad.html">Actividad 1</a>
+                <a href="Actividad2Tinkercad.html">Actividad 2</a>
+                <a href="Actividad3Tinkercad.html">Actividad 3</a>
+                <a href="Actividad4Tinkercad.html">Actividad 4</a>
+                <a href="Actividad5.Tinkercad.html">Actividad 5</a>
+            </div>
+            <h1>Compuertas Lógicas</h1>
+            <p class="subtitle">Análisis y Simulación de Compuertas Lógicas Básicas (AND, OR y NOT)</p>
+        </div>
+
+        <div class="content">
+            <h2>OBJETIVOS</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Objetivo General</h3>
+                    <p>Analizar el comportamiento de las compuertas lógicas básicas mediante su construcción y simulación.</p>
+                </div>
+                <div class="specific-objectives">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Identificar las diferentes compuertas lógicas y sus símbolos</li>
+                        <li>Construir circuitos lógicos básicos utilizando compuertas</li>
+                        <li>Verificar las tablas de verdad mediante simulación y práctica</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>MARCO TEÓRICO</h2>
+            <div class="theory-section">
+                <div class="gate-card">
+                    <h3>Compuerta AND</h3>
+                    <p>Solo da salida alta (1) cuando todas las entradas son altas (1). Representa la operación lógica de multiplicación.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Compuerta OR</h3>
+                    <p>Da salida alta (1) si al menos una entrada es alta (1). Representa la operación lógica de suma.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Compuerta NOT</h3>
+                    <p>Invierte la entrada. Si la entrada es 1, la salida es 0, y viceversa. También llamada inversor.</p>
+                </div>
+            </div>
+
+            <div class="images-container">
+                <div class="image-card">
+                    <img src="./Imagenes/Afuera-compuertas-logicas.jpg" alt="Símbolos de compuertas lógicas">
+                    <p><strong>Símbolos de Compuertas Lógicas</strong></p>
+                </div>
+                <div class="image-card">
+                    <img src="./Imagenes/img_OrNotAnd.png" alt="Diagramas OR, NOT y AND">
+                    <p><strong>Diagramas de Compuertas OR, NOT y AND</strong></p>
+                </div>
+            </div>
+
+            <h2>MATERIALES Y EQUIPO</h2>
+            <div class="materials-grid">
+                <div class="material-item">Fuente de alimentación</div>
+                <div class="material-item">Protoboard</div>
+                <div class="material-item">Cables de conexión</div>
+                <div class="material-item">LEDs</div>
+                <div class="material-item">Resistencias</div>
+                <div class="material-item">Chips lógicos (74LS08, 74LS32, 74LS04)</div>
+                <div class="material-item">Multímetro (opcional)</div>
+            </div>
+
+            <h2>PROCEDIMIENTO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Conectar la compuerta lógica en el protoboard según el circuito diseñado.
+                </div>
+                <div class="procedure-step">
+                    Alimentar adecuadamente el chip con la tensión correcta (generalmente 5V).
+                </div>
+                <div class="procedure-step">
+                    Probar las diferentes combinaciones de entradas y observar la salida con LEDs.
+                </div>
+                <div class="procedure-step">
+                    Registrar todos los resultados obtenidos en las tablas correspondientes.
+                </div>
+                <div class="procedure-step">
+                    Simular los mismos circuitos en software para verificar resultados.
+                </div>
+            </div>
+
+            
+
+            <div class="simulation-container">
+                <h3>Simulación en Tinkercad - Circuito 1</h3>
+               <iframe width="725" height="453" src="https://www.tinkercad.com/embed/au91lnLmQpV?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </div>
+            <h2>TABLA DE RESULTADOS COMPUERTA "OR"</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Entrada A</th>
+                        <th>Entrada B</th>
+                        <th>Salida Esperada</th>
+                        <th>Salida Real</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>TABLA DE RESULTADOS COMPUERTA "AND"</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Entrada A</th>
+                        <th>Entrada B</th>
+                        <th>Salida Esperada</th>
+                        <th>Salida Real</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>TABLA DE RESULTADOS COMPUERTA "NOT"</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Entrada </th>
+                        
+                        <th>Salida Esperada</th>
+                        <th>Salida Real</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>                
+                        <td>0</td>
+                        <td>0</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>                        
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Funciona OK</td>
+                    </tr>
+                    
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>ANÁLISIS Y DISCUSIÓN</h2>
+            <div class="analysis-questions">
+                <ul>
+                    <li>¿Coincidieron los resultados reales con los esperados?</li>
+                    <li>¿Qué errores se presentaron durante la práctica?</li>
+                    <li>¿Qué sucede si no se conecta correctamente la alimentación del chip?</li>
+                    <li>¿Cómo se interpreta una salida incorrecta en el circuito?</li>
+                </ul>
+            </div>
+
+            <h2>CONCLUSIONES</h2>
+            <div class="conclusions-list">
+                <ul>
+                    <li>Las compuertas lógicas básicas pueden implementarse fácilmente con componentes TTL</li>
+                    <li>El comportamiento real coincide con las tablas de verdad estudiadas teóricamente</li>
+                    <li>La simulación ayuda a verificar el diseño antes de construir físicamente</li>
+                    <li>Es fundamental una correcta alimentación para el funcionamiento de los chips</li>
+                </ul>
+            </div>            
+            <h2>ANEXOS</h2>
+            <div class="annexes-grid">
+                <div class="annex-item">Fotos del montaje físico</div>
+                <div class="annex-item">Capturas del simulador</div>
+                <div class="annex-item">Tablas de verdad completas</div>
+                <div class="annex-item">Esquemas de conexión</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

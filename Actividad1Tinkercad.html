@@ -1,14 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Análisis y Simulación de Compuertas Lógicas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html">Volver</a>
-    <h2>Simulacion de un circuito utilizando Arduino</h2>
-    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/6LX55ctyUHy?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-    
+    <div class="container">
+        <div class="header">
+            <div class="nav-links">
+                <a href="Index.html">Inicio</a>
+            </div>
+            <h1>Encender 7 leds usando una sola funcion</h1>
+            <p class="subtitle">Lograr encender mediante una placa arduino 7 leds con una sola funcion</p>
+        </div>
+
+        <div class="content">
+            <h2>OBJETIVOS</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Objetivo General</h3>
+                    <p>Desarrollar un programa en Arduino que permita controlar el encendido de 7 LEDs mediante una única función, optimizando el uso del código y comprendiendo la lógica de control en microcontroladores.</p>
+                </div>
+                <div class="specific-objectives">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Diseñar un circuito con una placa Arduino UNO, 7 LEDs y resistencias limitadoras de corriente.</li>
+                        <li>Implementar en Arduino una función que permita encender todos los LEDs de manera organizada.</li>
+                        <li>Analizar la importancia de la modularidad y reutilización de código en la programación.</li>
+                        <li>Observar el funcionamiento de los LEDs mediante la simulación en Tinkercad.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>MARCO TEÓRICO</h2>
+            <div class="theory-section">
+                <div class="gate-card">
+                    <h3>Arduino UNO</h3>
+                    <p>Plataforma de desarrollo. Posee 14 pines digitales de entrada/salida, 6 entradas analógicas y opera a 16 MHz. Su capacidad de procesamiento permite manejar múltiples sensores y actuadores simultáneamente.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>LED</h3>
+                    <p>Diodo semiconductor que emite luz al ser polarizado directamente. Requiere una resistencia limitadora para evitar daños por exceso de corriente.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Funciones en programacion</h3>
+                    <p>Una función es un bloque de código reutilizable que ejecuta una tarea específica. Usarlas mejora la legibilidad, modularidad y mantenimiento del código.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Control de salidas digitales</h3>
+                    <p>Con digitalWrite(pin, HIGH/LOW) se controla el estado de un pin en Arduino, encendiendo o apagando dispositivos como LEDs.</p>
+                </div>
+            </div>            
+
+            <h2>MATERIALES Y EQUIPO</h2>
+            <div class="materials-grid">
+                <div class="material-item">Placa arduino UNO</div>
+                <div class="material-item">Protoboard</div>
+                <div class="material-item">Cables de conexión</div>
+                <div class="material-item">LEDs</div>
+                
+            </div>
+            <div class="images-container">
+                <div class="image-card">
+                    <img src="./Imagenes/ArduinoUno.jpg" alt="Circuito LCD Arduino">
+                    <p><strong>Placa Arduino UNO</strong></p>
+                </div>
+                
+            </div>
+            <h2>PROCEDIMIENTO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Colocar 7 LEDs en una protoboard, cada uno con su respectiva resistencia (220Ω).
+                </div>
+                <div class="procedure-step">
+                    Conectar los cátodos de los LEDs a GND y los ánodos a los pines digitales (ejemplo: del pin 2 al pin 8).
+                </div>
+                <div class="procedure-step">
+                    Programar en Tinkercad una función que encienda los 7 LEDs.
+                </div>
+                
+                
+
+            
+
+            <div class="simulation-container">
+                <h3>Simulación en Tinkercad</h3>
+                <iframe width="725" height="453" src="https://www.tinkercad.com/embed/6LX55ctyUHy?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </div>            
+
+            <h2>ANÁLISIS Y DISCUSIÓN</h2>
+            <div class="analysis-questions">
+                <ul>
+                    <li>* El uso de una única función simplifica el código, ya que evita repetir múltiples digitalWrite para cada LED.</li>
+                    <li>* Con el ciclo for se recorren los pines de manera eficiente, mostrando la importancia de la programación estructurada.</li>
+                    <li>* Se comprobó que la función facilita modificar el número de LEDs, ya que solo es necesario ajustar el arreglo de pines.</li>
+                </ul>
+            </div>
+
+            <h2>CONCLUSIONES</h2>
+            <div class="conclusions-list">
+                <ul>
+                    <li>Usar una función para encender varios LEDs permite optimizar el código y hacerlo más legible.</li>
+                    <li>La simulación en Tinkercad facilita la comprensión del funcionamiento de Arduino sin necesidad de componentes físicos.</li>
+                    <li>La estructura modular del código hace más fácil escalar el proyecto a un mayor número de LEDs o diferentes dispositivos.</li>
+                    <li>Este ejercicio refuerza el aprendizaje en la programación estructurada y el control de salidas digitales en Arduino.</li>
+                </ul>
+            </div>            
+            <h2>ANEXOS</h2>
+            <div class="annexes-grid">
+                <div class="annex-item">Fotos del montaje físico</div>
+                <div class="annex-item">Capturas del simulador</div>
+                <div class="annex-item">Tablas de verdad completas</div>
+                <div class="annex-item">Esquemas de conexión</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+    
+    

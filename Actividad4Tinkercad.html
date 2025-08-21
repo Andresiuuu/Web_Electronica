@@ -1,16 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 4</title>
+    <title>Sistema de Medición de Distancia con LCD y Control Automático</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html">Volver</a>
-    <h2>Actividad 4: Mostrar en LCD. En la primera fila mostrar la palabra "Distancia".<br>
-    En la segunda fila mostrar el valor de la distancia y concatenar "cm".
-    </h2>
-    <p>Si la distancia es menor a 100 encender el foco, caso contrario encender una alarma</p>
-    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/k1JHCV2nkwP?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div class="container">
+        <div class="header">
+            <div class="nav-links">
+                <a href="Index.html">Inicio</a>
+            </div>
+            <h1>Medidor de Distancia con LCD</h1>
+            <p class="subtitle">Sistema de Medición Ultrasónica con Visualización LCD y Control Automático de Actuadores</p>
+        </div>
+
+        <div class="content">
+            <h2>OBJETIVOS</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Objetivo General</h3>
+                    <p>Desarrollar un sistema integrado de medición de distancia que combine sensor ultrasónico HC-SR04, visualización LCD y control automático de actuadores basado en umbrales de proximidad.</p>
+                </div>
+                <div class="specific-objectives">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Implementar la medición de distancia en tiempo real utilizando sensor ultrasónico HC-SR04</li>
+                        <li>Configurar pantalla LCD 16x2 para mostrar datos de distancia de forma organizada y legible</li>
+                        <li>Programar control automático: foco encendido si distancia > 100cm, alarma si distancia ≤ 100cm</li>
+                        <li>Evaluar la funcionalidad integral del sistema de medición y control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>MARCO TEÓRICO</h2>
+            <div class="theory-section">
+                <div class="gate-card">
+                    <h3>Sensor Ultrasónico HC-SR04</h3>
+                    <p>Dispositivo de medición de distancia que emite pulsos ultrasónicos de 40 kHz. Calcula la distancia mediante el tiempo de vuelo del eco: Distancia = (Tiempo × 343 m/s) / 2. Rango de operación de 2 cm a 4 metros con precisión de ±3mm.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Display LCD 16x2 con I2C</h3>
+                    <p>Pantalla de cristal líquido de 2 líneas × 16 caracteres con módulo I2C integrado. Utiliza direccionamiento I2C (típicamente 0x27) y permite visualización de texto y números con control de posición de cursor.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Sistema de Control Automático</h3>
+                    <p>Implementación de lógica condicional que toma decisiones basadas en datos del sensor. Permite activar diferentes actuadores según rangos de valores predefinidos, creando respuestas automatizadas del sistema.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Actuadores de Salida</h3>
+                    <p>Foco LED: Proporciona iluminación cuando se detecta proximidad. Alarma (buzzer): Genera señal sonora de alerta cuando el objeto está distante. Ambos controlados por salidas digitales del Arduino.</p>
+                </div>
+            </div>
+
+            <div class="images-container">
+                <div class="image-card">
+                    <img src="./Imagenes/CircuitoIntegradoLCD.jpg" alt="Circuito completo LCD y sensor">
+                    <p><strong>Circuito Integrado: LCD, Sensor HC-SR04 y Actuadores</strong></p>
+                </div>
+                <div class="image-card">
+                    <img src="./Imagenes/Esquema de conexiones.jpg" alt="Conexiones I2C Arduino">
+                    <p><strong>Esquema de Conexiones I2C y Pines Digitales</strong></p>
+                </div>
+            </div>
+
+            <h2>MATERIALES Y EQUIPO</h2>
+            <div class="materials-grid">
+                <div class="material-item">Arduino UNO</div>
+                <div class="material-item">Sensor HC-SR04</div>
+                <div class="material-item">LCD 16x2 con I2C</div>
+                <div class="material-item">LED (foco)</div>
+                <div class="material-item">Buzzer (alarma)</div>
+                <div class="material-item">Resistencia 220Ω</div>
+                <div class="material-item">Protoboard</div>
+                <div class="material-item">Cables de conexión</div>
+            </div>
+
+            <h2>PROCEDIMIENTO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Conectar sensor HC-SR04: Trig a pin 7, Echo a pin 6, VCC a 5V y GND a tierra del Arduino.
+                </div>
+                <div class="procedure-step">
+                    Conectar LCD con I2C: SDA a pin A4, SCL a pin A5, alimentación a 5V del Arduino.
+                </div>
+                <div class="procedure-step">
+                    Conectar actuadores: LED (foco) al pin 13 con resistencia 220Ω y buzzer (alarma) al pin 12.
+                </div>
+                <div class="procedure-step">
+                    Programar visualización LCD: "Distancia" en línea 1, valor + "cm" en línea 2.
+                </div>
+                <div class="procedure-step">
+                    Implementar lógica de control: foco ON si distancia > 100cm, alarma ON si distancia ≤ 100cm.
+                </div>
+            </div>
+
+            <div class="simulation-container">
+                <h3>Simulación en Tinkercad - Sistema Integrado</h3>
+                <iframe width="725" height="453" src="https://www.tinkercad.com/embed/k1JHCV2nkwP?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </div>
+
+            <h2>TABLA DE RESULTADOS - SISTEMA INTEGRADO</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Distancia Medida (cm)</th>
+                        <th>Display LCD Línea 1</th>
+                        <th>Display LCD Línea 2</th>
+                        <th>Estado Foco</th>
+                        <th>Estado Alarma</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>150</td>
+                        <td>Distancia</td>
+                        <td>150 cm</td>
+                        <td>Encendido</td>
+                        <td>Apagado</td>
+                        <td>Objeto distante, foco activo</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>100</td>
+                        <td>Distancia</td>
+                        <td>100 cm</td>
+                        <td>Apagado</td>
+                        <td>Encendido</td>
+                        <td>En el umbral exacto</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>50</td>
+                        <td>Distancia</td>
+                        <td>50 cm</td>
+                        <td>Apagado</td>
+                        <td>Encendido</td>
+                        <td>Objeto cercano, alarma encendida</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <h2>ANÁLISIS Y DISCUSIÓN</h2>
+            <div class="analysis-questions">                
+                <ul>
+                    <li>* ¿La visualización en LCD se actualizó correctamente en tiempo real? Sí, el display mostró las mediciones de distancia de forma continua y precisa.</li>
+                    <li>* ¿El sistema de control automático respondió adecuadamente al umbral de 100 cm? La transición entre foco y alarma ocurrió exactamente en el umbral: foco para distancias mayores, alarma para menores.</li>
+                    <li>* ¿Qué ventajas ofrece combinar visualización LCD con control automático? Permite monitoreo visual de datos y respuesta automática simultánea.</li>
+                    <li>* ¿Cómo se comporta el sistema ante cambios rápidos de distancia? El tiempo de respuesta de ~100ms permite seguimiento adecuado de objetos en movimiento moderado.</li>
+                </ul>
+            </div>
+
+            <h2>CONCLUSIONES</h2>
+            <div class="conclusions-list">
+                <ul>
+                    <li>Se logró integrar exitosamente sensor ultrasónico, visualización LCD y control automático de actuadores</li>
+                    <li>La pantalla LCD mostró correctamente los datos de distancia en formato legible y organizado</li>
+                    <li>El sistema de control automático funcionó correctamente: foco para distancias mayores a 100cm, alarma para distancias menores</li>
+                    <li>La lógica condicional permitió crear un sistema inteligente que responde automáticamente a cambios de proximidad</li>
+                    <li>La comunicación I2C simplificó las conexiones manteniendo funcionalidad completa del sistema</li>
+                    <li>El proyecto demuestra la versatilidad de Arduino para crear sistemas de monitoreo y control integrados</li>
+                </ul>
+            </div>
+
+            <h2>ANEXOS</h2>
+            <div class="annexes-grid">
+                <div class="annex-item">Esquema de conexiones completo</div>
+                <div class="annex-item">Capturas de simulación Tinkercad</div>
+                <div class="annex-item">Tabla de mediciones experimentales</div>
+                <div class="annex-item">Código fuente del programa</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

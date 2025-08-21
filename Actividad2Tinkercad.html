@@ -1,13 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad2Tinkercad</title>
+    <title>Sistema de Detección por Ultrasonido con Arduino</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html">Volver</a>
-    <h2>Encender un foco si la distancia es mayor a 100cm, si es menor encender una alarma usando Tinkercad</h2>
-    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/lmoG0bExL9O?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div class="container">
+        <div class="header">
+            <div class="nav-links">
+                <a href="Index.html">Inicio</a>
+            </div>
+            <h1>Sistema de Detección por Ultrasonido</h1>
+            <p class="subtitle">Implementación de Sistema Automatizado de Proximidad con Arduino UNO y Sensor HC-SR04</p>
+        </div>
+
+        <div class="content">
+            <h2>OBJETIVOS</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Objetivo General</h3>
+                    <p>Implementar y analizar un sistema automatizado de detección de proximidad utilizando sensor ultrasónico HC-SR04 y Arduino UNO, que active diferentes dispositivos de salida según rangos de distancia predefinidos.</p>
+                </div>
+                <div class="specific-objectives">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Programar un microcontrolador Arduino UNO para procesar señales del sensor ultrasónico HC-SR04</li>
+                        <li>Implementar lógica condicional para activar un LED cuando la distancia detectada sea mayor a 100 cm</li>
+                        <li>Configurar una alarma sonora (buzzer) que se active cuando la distancia sea menor a 100 cm</li>
+                        <li>Evaluar la precisión y confiabilidad del sistema de medición de distancia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>MARCO TEÓRICO</h2>
+            <div class="theory-section">
+                <div class="gate-card">
+                    <h3>Sensor Ultrasónico HC-SR04</h3>
+                    <p>Utiliza el principio de ecolocalización para medir distancias. Emite pulsos ultrasónicos de 40 kHz y calcula la distancia basándose en el tiempo que tarda el eco en regresar.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Microcontrolador Arduino UNO</h3>
+                    <p>Plataforma de desarrollo. Posee 14 pines digitales de entrada/salida, 6 entradas analógicas y opera a 16 MHz. Su capacidad de procesamiento permite manejar múltiples sensores y actuadores simultáneamente.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Lógica Condicional en Sistemas Embebidos</h3>
+                    <p>Los sistemas embebidos utilizan estructuras condicionales (if-else) para tomar decisiones basadas en datos de sensores. Esta lógica permite crear respuestas automatizadas y diferenciadas según las condiciones del entorno.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Actuadores de Salida</h3>
+                    <p>LED: Diodo emisor de luz que proporciona retroalimentación visual del estado del sistema. Buzzer: Transductor electroacústico que genera señales sonoras de alerta o notificación.</p>
+                </div>
+            </div>
+
+            <div class="images-container">
+                <div class="image-card">
+                    <img src="./Imagenes/CircuitoDeteccion.jpg" alt="Circuito sensor ultrasónico">
+                    <p><strong>Circuito de Detección por Ultrasonido</strong></p>
+                </div>
+                <div class="image-card">
+                    <img src="./Imagenes/EsquemaConexiones.jpg" alt="Conexiones Arduino HC-SR04">
+                    <p><strong>Esquema de Conexiones Arduino - HC-SR04</strong></p>
+                </div>
+            </div>
+
+            <h2>MATERIALES Y EQUIPO</h2>
+            <div class="materials-grid">
+                <div class="material-item">Arduino UNO</div>
+                <div class="material-item">Sensor HC-SR04</div>
+                <div class="material-item">LED indicador</div>
+                <div class="material-item">Buzzer alarma</div>
+                <div class="material-item">Resistencia 220Ω</div>
+                <div class="material-item">Protoboard</div>
+                <div class="material-item">Cables de conexión</div>
+            </div>
+
+            <h2>PROCEDIMIENTO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Conectar el sensor HC-SR04: VCC a 5V, GND a tierra, Trig a pin 7, Echo a pin 6 del Arduino.
+                </div>
+                <div class="procedure-step">
+                    Conectar LED al pin 13 con resistencia de 220Ω en serie y buzzer al pin 12 del Arduino.
+                </div>
+                <div class="procedure-step">
+                    Programar el Arduino con la lógica condicional: distancia > 100cm enciende LED, distancia ≤ 100cm activa buzzer.
+                </div>
+                <div class="procedure-step">
+                    Realizar pruebas colocando objetos a diferentes distancias y registrar el comportamiento del sistema.
+                </div>
+                <div class="procedure-step">
+                    Verificar la precisión de las mediciones y documentar el tiempo de respuesta del sistema.
+                </div>
+            </div>
+            
+
+            <div class="simulation-container">
+                <h3>Simulación en Tinkercad - Sistema de Detección</h3>
+                    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/lmoG0bExL9O?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>            </div>
+
+            <h2>TABLA DE RESULTADOS - SISTEMA DE DETECCIÓN</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Distancia Objeto (cm)</th>
+                        <th>Estado LED</th>
+                        <th>Estado Buzzer</th>                        
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>150</td>
+                        <td>Encendido</td>
+                        <td>Apagado</td>                        
+                        <td>Led Activo</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>100</td>
+                        <td>Apagado</td>
+                        <td>Encendido</td>                        
+                        <td>Cambio en umbral</td>
+                    </tr>
+                    <tr>
+                        <td>80</td>
+                        <td>Apagado</td>
+                        <td>Encendido</td>
+                        <td>Alarma activa</td>
+                    </tr>                    
+                </tbody>
+            </table>
+
+            <h2>ANÁLISIS Y DISCUSIÓN</h2>
+            <div class="analysis-questions">
+                <ul>
+                    <li>¿El sistema respondió correctamente al umbral de 100 cm establecido?</li>
+                    <li>¿Qué factores pueden afectar la precisión del sensor ultrasónico?</li>
+                    <li>¿Cuál es el tiempo de respuesta del sistema de detección?</li>
+                    <li>¿Qué aplicaciones prácticas tiene este tipo de sistema automatizado?</li>
+                </ul>
+            </div>
+
+            <h2>CONCLUSIONES</h2>
+            <div class="conclusions-list">
+                <ul>
+                    <li>Se implementó exitosamente un sistema de detección por ultrasonido con respuesta diferenciada según la distancia del objeto</li>
+                    <li>El umbral de 100 cm se estableció correctamente, permitiendo la alternancia entre LED y buzzer según la proximidad</li>
+                    <li>El sistema demostró alta confiabilidad y tiempo de respuesta adecuado para aplicaciones de tiempo real</li>
+                    <li>La programación condicional en Arduino permite crear sistemas adaptativos eficientes con recursos mínimos</li>
+                    <li>El sensor HC-SR04 mostró precisión aceptable en el rango de operación establecido</li>
+                    <li>Las aplicaciones potenciales del sistema son amplias, desde seguridad hasta asistencia en tareas cotidianas</li>
+                </ul>
+            </div>
+
+            <h2>ANEXOS</h2>
+            <div class="annexes-grid">
+                <div class="annex-item">Esquema de conexiones del circuito</div>
+                <div class="annex-item">Capturas de simulación Tinkercad</div>
+                <div class="annex-item">Mediciones experimentales</div>
+                <div class="annex-item">Código fuente del programa</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

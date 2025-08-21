@@ -1,16 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 3</title>
-
+    <title>Sistema de Display LCD con Caracteres Personalizados</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html">Volver</a>
-    <h2>Actividad 3: en un LCD escribir en la primera linea su nombre centrado.<br>
-    En la segunda fila escribir su apellido centrado.<br>
-    En las 4 esquinas escribir un caracter personalizado.</h2>
-    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/31v4kf4CdLF?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div class="container">
+        <div class="header">
+            <div class="nav-links">
+                <a href="Index.html">Inicio</a>
+            </div>
+            <h1>Display LCD con Arduino</h1>
+            <p class="subtitle">Implementación de Pantalla LCD 16x2 con Caracteres Personalizados y Texto Centrado</p>
+        </div>
+
+        <div class="content">
+            <h2>OBJETIVOS</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Objetivo General</h3>
+                    <p>Desarrollar e implementar un sistema de visualización utilizando pantalla LCD 16x2 con Arduino UNO para mostrar texto centrado y caracteres personalizados en posiciones específicas.</p>
+                </div>
+                <div class="specific-objectives">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Configurar la comunicación entre Arduino UNO y pantalla LCD 16x2 mediante protocolo I2C</li>
+                        <li>Programar la visualización de texto centrado en ambas líneas del display</li>
+                        <li>Crear y mostrar caracteres personalizados en las cuatro esquinas de la pantalla</li>
+                        <li>Verificar el correcto funcionamiento del sistema de visualización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>MARCO TEÓRICO</h2>
+            <div class="theory-section">
+                <div class="gate-card">
+                    <h3>Pantalla LCD 16x2</h3>
+                    <p>Display de cristal líquido que permite mostrar 2 líneas de 16 caracteres cada una. Utiliza controlador HD44780 y puede funcionar en modo paralelo (6-12 pines) o I2C (2 pines). Ideal para mostrar información textual y numérica en proyectos embebidos.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Protocolo de Comunicación I2C</h3>
+                    <p>Bus de comunicación serial que utiliza solo dos líneas: SDA (datos) y SCL (reloj). Permite conectar múltiples dispositivos con direcciones únicas. Simplifica las conexiones y libera pines del microcontrolador para otras funciones.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Caracteres Personalizados CGRAM</h3>
+                    <p>La memoria CGRAM (Character Generator RAM) del controlador HD44780 permite crear hasta 8 caracteres personalizados de 5x8 píxeles. Cada carácter se define mediante un array de bytes que representa el patrón de píxeles.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Posicionamiento y Centrado de Texto</h3>
+                    <p>El control de cursor en LCD permite posicionar texto en coordenadas específicas (columna, fila). El centrado se calcula considerando la longitud del texto y el ancho disponible: posición = (16 - longitud_texto) / 2.</p>
+                </div>
+            </div>
+
+            <div class="images-container">
+                <div class="image-card">
+                    <img src="./Imagenes/LCD.png" alt="Circuito LCD Arduino">
+                    <p><strong>Modulo LCD de 16x2</strong></p>
+                </div>
+                <div class="image-card">
+                    <img src="./Imagenes/caracteresP.webp" alt="Caracteres personalizados LCD">
+                    <p><strong>Ejemplos de Caracteres Personalizados</strong></p>
+                </div>
+            </div>
+
+            <h2>MATERIALES Y EQUIPO</h2>
+            <div class="materials-grid">
+                <div class="material-item">Arduino UNO</div>
+                <div class="material-item">LCD 16x2 con I2C</div>
+                <div class="material-item">Módulo I2C para LCD</div>
+                <div class="material-item">Protoboard</div>
+                <div class="material-item">Cables de conexión</div>
+                <div class="material-item">Fuente de alimentación 5V</div>
+                <div class="material-item">Potenciómetro (contraste)</div>
+            </div>
+
+            <h2>PROCEDIMIENTO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Conectar la pantalla LCD con módulo I2C al Arduino: SDA a pin A4, SCL a pin A5, VCC a 5V y GND a tierra.
+                </div>
+                <div class="procedure-step">
+                    Incluir y configurar la librería LiquidCrystal_I2C en el código Arduino para la comunicación con el display.
+                </div>
+                <div class="procedure-step">
+                    Crear los caracteres personalizados definiendo los patrones de píxeles en arrays de bytes de 8 elementos.
+                </div>
+                <div class="procedure-step">
+                    Programar la lógica para centrar el nombre en la primera línea y el apellido en la segunda línea.
+                </div>
+                <div class="procedure-step">
+                    Posicionar los caracteres personalizados en las coordenadas de las cuatro esquinas: (0,0), (15,0), (0,1), (15,1).
+                </div>
+            </div>
+
+            <div class="simulation-container">
+                <h3>Simulación en Tinkercad - Display LCD</h3>
+                    <iframe width="725" height="453" src="https://www.tinkercad.com/embed/31v4kf4CdLF?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>            </div>
+
+            <h2>TABLA DE RESULTADOS - VISUALIZACIÓN LCD</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Posición</th>
+                        <th>Contenido Esperado</th>
+                        <th>Resultado Real</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Línea 1</td>
+                        <td>Centrada</td>
+                        <td>Nombre centrado</td>
+                        <td>Correcto</td>
+                        <td>Texto alineado correctamente</td>
+                    </tr>
+                    <tr>
+                        <td>Línea 2</td>
+                        <td>Centrada</td>
+                        <td>Apellido centrado</td>
+                        <td>Correcto</td>
+                        <td>Texto alineado correctamente</td>
+                    </tr>
+                    <tr>
+                        <td>Esquina superior izq.</td>
+                        <td>(0,0)</td>
+                        <td>Carácter personalizado</td>
+                        <td>Correcto</td>
+                        <td>Símbolo visible</td>
+                    </tr>
+                    <tr>
+                        <td>Esquina superior der.</td>
+                        <td>(15,0)</td>
+                        <td>Carácter personalizado</td>
+                        <td>Correcto</td>
+                        <td>Símbolo visible</td>
+                    </tr>
+                    <tr>
+                        <td>Esquina inferior izq.</td>
+                        <td>(0,1)</td>
+                        <td>Carácter personalizado</td>
+                        <td>Correcto</td>
+                        <td>Símbolo visible</td>
+                    </tr>
+                    <tr>
+                        <td>Esquina inferior der.</td>
+                        <td>(15,1)</td>
+                        <td>Carácter personalizado</td>
+                        <td>Correcto</td>
+                        <td>Símbolo visible</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>ANÁLISIS Y DISCUSIÓN</h2>
+            <div class="analysis-questions">
+                <ul>
+                    <li>¿Se logró centrar correctamente el texto en ambas líneas del LCD? El algoritmo de centrado calculó correctamente las posiciones basándose en la longitud del texto.</li>
+                    <li>¿Los caracteres personalizados se visualizaron en las posiciones correctas? Los cuatro caracteres aparecieron exactamente en las esquinas especificadas.</li>
+                    <li>¿Qué ventajas ofrece el uso de I2C para la conexión LCD? Reduce significativamente el número de cables necesarios de 12 a solo 4 conexiones.</li>
+                    <li>¿Cómo afecta el contraste del LCD a la visualización? Un ajuste adecuado del contraste es fundamental para la legibilidad del texto y los caracteres.</li>
+                </ul>
+            </div>
+
+            <h2>CONCLUSIONES</h2>
+            <div class="conclusions-list">
+                <ul>
+                    <li>Se implementó exitosamente la visualización de texto centrado en pantalla LCD 16x2 utilizando Arduino UNO</li>
+                    <li>Los caracteres personalizados se crearon y posicionaron correctamente en las cuatro esquinas del display</li>
+                    <li>La comunicación I2C simplificó las conexiones y permitió un control eficiente del LCD</li>
+                    <li>El algoritmo de centrado de texto funcionó correctamente para ambas líneas del display</li>
+                    <li>El sistema demostró ser confiable para aplicaciones que requieren interfaz visual personalizada</li>
+                    <li>La capacidad de crear caracteres personalizados amplía las posibilidades de diseño de interfaces gráficas básicas</li>
+                </ul>
+            </div>
+
+            <h2>ANEXOS</h2>
+            <div class="annexes-grid">
+                <div class="annex-item">Esquema de conexiones I2C</div>
+                <div class="annex-item">Capturas de simulación Tinkercad</div>
+                <div class="annex-item">Patrones de caracteres personalizados</div>
+                <div class="annex-item">Código fuente del programa</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

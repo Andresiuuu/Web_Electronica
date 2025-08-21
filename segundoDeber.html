@@ -10,13 +10,10 @@
     <div class="container">
         <div class="header">
             <div class="nav-links">
-                <a href="index.html"> Deber 1</a>
-                <a href="tercerDeber.html"> Tercer Deber</a>
-                <a href="Actividad1Tinkercad.html">Actividad 1</a>
-                <a href="Actividad2Tinkercad.html">Actividad 2</a>
+                <a href="Index.html">Inicio</a>
             </div>
             <h1>Simulacion de circuito en serie y paralelo</h1>
-            <p class="subtitle">Análisis y Simulación de Compuertas Lógicas Básicas (AND, OR y NOT)</p>
+            <p class="subtitle">Analisis y simulacion de circuitos en serie y paralelo</p>
         </div>
 
         <div class="content">
@@ -24,14 +21,15 @@
             <div class="objectives-grid">
                 <div class="objective-card">
                     <h3>Objetivo General</h3>
-                    <p>Analizar el comportamiento de las compuertas lógicas básicas mediante su construcción y simulación.</p>
+                    <p>Analizar el comportamiento de circuitos eléctricos en serie y paralelo mediante su construcción y simulación en la plataforma Tinkercad, identificando diferencias en el flujo de corriente, voltaje y comportamiento de los componentes.</p>
                 </div>
                 <div class="specific-objectives">
                     <h3>Objetivos Específicos</h3>
                     <ul>
-                        <li>Identificar las diferentes compuertas lógicas y sus símbolos</li>
-                        <li>Construir circuitos lógicos básicos utilizando compuertas</li>
-                        <li>Verificar las tablas de verdad mediante simulación y práctica</li>
+                        <li>Construir un circuito en serie y un circuito en paralelo utilizando resistencias, una fuente de voltaje y multímetros en Tinkercad.</li>
+                        <li>Medir y comparar el comportamiento del voltaje y la corriente en cada tipo de circuito.</li>
+                        <li>Comprobar la aplicación de la Ley de Ohm en las configuraciones analizadas.</li>
+                        <li>Diferenciar las aplicaciones prácticas de cada tipo de circuito.</li>
                     </ul>
                 </div>
             </div>
@@ -39,16 +37,21 @@
             <h2>MARCO TEÓRICO</h2>
             <div class="theory-section">
                 <div class="gate-card">
-                    <h3>Compuerta AND</h3>
-                    <p>Solo da salida alta (1) cuando todas las entradas son altas (1). Representa la operación lógica de multiplicación.</p>
+                    <h3>Circuito en serie</h3>
+                    <p>Los elementos están conectados en un único camino. La corriente que circula es la misma en todos los componentes, pero el voltaje de la fuente se divide entre ellos.</p>
                 </div>
                 <div class="gate-card">
-                    <h3>Compuerta OR</h3>
-                    <p>Da salida alta (1) si al menos una entrada es alta (1). Representa la operación lógica de suma.</p>
+                    <h3>Circuito en paralelo</h3>
+                    <p>Los elementos se conectan en ramas independientes. Cada rama recibe el mismo voltaje de la fuente, mientras que la corriente se divide proporcionalmente según la resistencia de cada rama.</p>
                 </div>
                 <div class="gate-card">
-                    <h3>Compuerta NOT</h3>
-                    <p>Invierte la entrada. Si la entrada es 1, la salida es 0, y viceversa. También llamada inversor.</p>
+                    <h3>Ley de Ohm (V = I × R)</h3>
+                    <p>Relaciona voltaje, corriente y resistencia, y permite calcular los valores teóricos en cualquier circuito eléctrico.</p>
+                </div>
+                <div class="gate-card">
+                    <h3>Aplicaciones practicas:</h3>
+                    <p> Serie: fusibles, alarmas, luces decorativas antiguas. <br>
+                        Paralelo: instalaciones eléctricas residenciales, equipos electrónicos.</p>
                 </div>
             </div>
 
@@ -65,32 +68,43 @@
 
             <h2>MATERIALES Y EQUIPO</h2>
             <div class="materials-grid">
-                <div class="material-item">Fuente de alimentación</div>
+                <div class="material-item">Bateria de 9V</div>
                 <div class="material-item">Protoboard</div>
                 <div class="material-item">Cables de conexión</div>
-                <div class="material-item">LEDs</div>
-                <div class="material-item">Resistencias</div>
-                <div class="material-item">Chips lógicos (74LS08, 74LS32, 74LS04)</div>
-                <div class="material-item">Multímetro (opcional)</div>
+                <div class="material-item">Multimetro</div>
+                <div class="material-item">Resistencias</div>          
             </div>
 
-            <h2>PROCEDIMIENTO</h2>
+            <h2>PROCEDIMIENTO PARA CIRCUITO EN SERIE</h2>
             <div class="procedure-steps">
                 <div class="procedure-step">
-                    Conectar la compuerta lógica en el protoboard según el circuito diseñado.
+                    Se conectó la bateria de 9V a una protoboard.
                 </div>
                 <div class="procedure-step">
-                    Alimentar adecuadamente el chip con la tensión correcta (generalmente 5V).
+                    Se añadio dos resistencias en serie.
                 </div>
                 <div class="procedure-step">
-                    Probar las diferentes combinaciones de entradas y observar la salida con LEDs.
+                    Se colocó un multimetro para medir la corriente total
                 </div>
                 <div class="procedure-step">
-                    Registrar todos los resultados obtenidos en las tablas correspondientes.
+                    Se ejecutó la simulacion y se visualizaron los valores obtenidos
+                </div>                
+            </div>
+
+            <h2>PROCEDIMIENTO PARA CIRCUITO PARALELO</h2>
+            <div class="procedure-steps">
+                <div class="procedure-step">
+                    Se conectó la bateria de 9V a una protoboard.
                 </div>
                 <div class="procedure-step">
-                    Simular los mismos circuitos en software para verificar resultados.
+                    Se añadieron dos resistencias en ramas paralelas.
                 </div>
+                <div class="procedure-step">
+                    Se colocaron varios multímetros para medir el voltaje en cada resistencia y la corriente total.
+                </div>
+                <div class="procedure-step">
+                    Se ejecutó la simulacion y se visualizaron los valores obtenidos
+                </div>                
             </div>
 
             
@@ -103,134 +117,47 @@
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Entrada A</th>
-                        <th>Entrada B</th>
-                        <th>Salida Esperada</th>
-                        <th>Salida Real</th>
-                        <th>Observaciones</th>
+                        <th>Tipo de circuito</th>
+                        <th>Voltaje total(V)</th>
+                        <th>Corriente total(A)</th>
+                        <th>Voltaje de cada resistencia</th>
+                        <th>Corriente por resistencia (A)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Funciona OK</td>
+                        <td>Serie</td>
+                        <td>9</td>
+                        <td>0.03</td>
+                        <td>R1 = 4.5, R2 = 4.5</td>
+                        <td>0.03 en ambas</td>
                     </tr>
                     <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Funciona OK</td>
-                    </tr>
+                        <td>Paralelo</td>
+                        <td>9</td>
+                        <td>0.06</td>
+                        <td>R1 = 9, R2 = 9</td>
+                        <td>R1 = 0.03, R2 = 0.03</td>
+                    </tr>                    
                 </tbody>
-            </table>
-
-            <h2>TABLA DE RESULTADOS COMPUERTA "AND"</h2>
-            <table class="results-table">
-                <thead>
-                    <tr>
-                        <th>Entrada A</th>
-                        <th>Entrada B</th>
-                        <th>Salida Esperada</th>
-                        <th>Salida Real</th>
-                        <th>Observaciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>TABLA DE RESULTADOS COMPUERTA "NOT"</h2>
-            <table class="results-table">
-                <thead>
-                    <tr>
-                        <th>Entrada </th>
-                        
-                        <th>Salida Esperada</th>
-                        <th>Salida Real</th>
-                        <th>Observaciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>                
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>                        
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Funciona OK</td>
-                    </tr>
-                    
-                    </tr>
-                </tbody>
-            </table>
-
+            </table>        
             <h2>ANÁLISIS Y DISCUSIÓN</h2>
             <div class="analysis-questions">
                 <ul>
-                    <li>¿Coincidieron los resultados reales con los esperados?</li>
-                    <li>¿Qué errores se presentaron durante la práctica?</li>
-                    <li>¿Qué sucede si no se conecta correctamente la alimentación del chip?</li>
-                    <li>¿Cómo se interpreta una salida incorrecta en el circuito?</li>
+                    <li>En el circuito en serie, la corriente fue la misma para todos los elementos, mientras que el voltaje se repartió entre las resistencias.</li>
+                    <li>En el circuito en paralelo, cada resistencia recibió el mismo voltaje de la fuente, pero la corriente se dividió entre las ramas.</li>
+                    <li>Se validó la Ley de Ohm, ya que los valores simulados coincidieron con los cálculos teóricos.</li>
+                    <li>Se concluyó que los circuitos en paralelo ofrecen mayor confiabilidad para aplicaciones prácticas, mientras que los circuitos en serie son útiles cuando se requiere que todos los elementos dependan de un mismo flujo de corriente.</li>
                 </ul>
             </div>
 
             <h2>CONCLUSIONES</h2>
             <div class="conclusions-list">
                 <ul>
-                    <li>Las compuertas lógicas básicas pueden implementarse fácilmente con componentes TTL</li>
-                    <li>El comportamiento real coincide con las tablas de verdad estudiadas teóricamente</li>
-                    <li>La simulación ayuda a verificar el diseño antes de construir físicamente</li>
-                    <li>Es fundamental una correcta alimentación para el funcionamiento de los chips</li>
+                    <li>Los circuitos en serie mantienen la misma corriente en todos los elementos, pero dividen el voltaje entre ellos.</li>
+                    <li>Los circuitos en paralelo mantienen el mismo voltaje en cada rama, dividiendo la corriente entre las resistencias.</li>
+                    <li>La simulación en Tinkercad permitió visualizar de manera clara estas diferencias.</li>
+                    <li>Los resultados obtenidos coinciden con la teoría, demostrando la aplicación de la Ley de Ohm.</li>
                 </ul>
             </div>            
             <h2>ANEXOS</h2>
